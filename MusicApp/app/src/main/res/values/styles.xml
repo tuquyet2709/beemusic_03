@@ -17,5 +17,16 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="TabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name= "tabIndicatorColor">@color/colorAccent</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/dp_11</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:actionBarSize">wrap_content</item>
+    </style>
 
 </resources>

@@ -3,7 +3,10 @@ package com.tuquyet.musicapp.utils.binding;
 import android.databinding.BindingAdapter;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,14 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.tuquyet.musicapp.R;
-import com.tuquyet.musicapp.screen.main.MainActivity;
 import com.tuquyet.musicapp.screen.main.MainViewModel;
 
 /**
  * Created by tuquyet on 26/07/2017.
  */
 public class BindingUtil {
-
     @BindingAdapter({"toolbar", "viewModel", "activity"})
     public static void setToolBar(DrawerLayout drawerLayout, Toolbar toolbar,
                                   MainViewModel viewModel, AppCompatActivity activity) {
@@ -42,5 +43,16 @@ public class BindingUtil {
                     return true;
                 }
             });
+    }
+
+    @BindingAdapter("setAdapter")
+    public static void setAdatpter(ViewPager viewPager, FragmentPagerAdapter adapter) {
+        viewPager.setAdapter(adapter);
+    }
+
+    @BindingAdapter("setupWithViewPager")
+    public static void setupWithViewPager(TabLayout tabLayout, ViewPager viewPager) {
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
