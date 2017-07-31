@@ -1,13 +1,20 @@
 package com.tuquyet.musicapp.screen.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.tuquyet.musicapp.R;
+import com.tuquyet.musicapp.screen.library.AlbumFragment;
+import com.tuquyet.musicapp.screen.library.LibraryActivity;
+import com.tuquyet.musicapp.screen.library.LibraryAdapter;
+import com.tuquyet.musicapp.screen.library.PlaylistFragment;
+import com.tuquyet.musicapp.screen.library.SingerFragment;
+import com.tuquyet.musicapp.screen.library.SongFragment;
 
 /**
  * Created by tuquyet on 25/07/2017.
@@ -15,17 +22,15 @@ import com.example.tuquyet.musicapp.R;
 public class MainViewModel extends BaseObservable implements MainContract.ViewModel {
     private AppCompatActivity mActivity;
     private Context mContext;
+    private LibraryActivity mLibraryActivity;
 
-    public Context getContext() {
-        return mContext;
+    public MainViewModel(LibraryActivity libraryActivity) {
+        mLibraryActivity = libraryActivity;
     }
 
-    public void setContext(Context context) {
-        mContext = context;
-    }
-
-    public MainViewModel(AppCompatActivity activity) {
+    public MainViewModel(AppCompatActivity activity, Context context) {
         mActivity = activity;
+        mContext = context;
     }
 
     public void onNavigationItemSelected(MenuItem item) {
@@ -33,6 +38,8 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
             case R.id.nav_home:
                 break;
             case R.id.nav_gallery:
+                Intent intent = mLibraryActivity.getLibraryIntent(mContext);
+                mContext.startActivity(intent);
                 break;
             case R.id.nav_song:
                 break;

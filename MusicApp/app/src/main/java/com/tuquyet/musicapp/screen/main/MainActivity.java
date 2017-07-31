@@ -1,8 +1,8 @@
 package com.tuquyet.musicapp.screen.main;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.tuquyet.musicapp.R;
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new MainViewModel(this);
+        mViewModel = new MainViewModel(this,this.getApplicationContext() );
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setViewModel(mViewModel);
     }
