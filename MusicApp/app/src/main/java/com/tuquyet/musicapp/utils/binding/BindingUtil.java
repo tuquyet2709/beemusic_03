@@ -1,6 +1,7 @@
 package com.tuquyet.musicapp.utils.binding;
 
 import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -10,8 +11,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.screen.main.MainViewModel;
@@ -54,5 +57,14 @@ public class BindingUtil {
     public static void setupWithViewPager(TabLayout tabLayout, ViewPager viewPager) {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
+    }
+    @BindingAdapter("setRecyclerViewAdapter")
+    public static void setAdapter(RecyclerView view, RecyclerView.Adapter adapter) {
+        view.setAdapter(adapter);
+    }
+
+    @BindingAdapter("setImageDrawable")
+    public static void setImageDrawable(ImageView imageDrawable, Drawable drawable){
+        imageDrawable.setImageDrawable(drawable);
     }
 }

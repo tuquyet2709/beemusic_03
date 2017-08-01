@@ -5,6 +5,7 @@ import android.databinding.Bindable;
 
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.screen.main.MainContract;
+import com.tuquyet.musicapp.screen.song.SongFragment;
 
 /**
  * Created by tuquyet on 29/07/2017.

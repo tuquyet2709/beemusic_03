@@ -39,5 +39,5 @@ dependencies:
     - ./gradlew app:dependencies
 test:
   override:
-      - sh scripts/saddler.sh
-      - sh scripts/pushNotification.sh
+    - sh scripts/saddler.sh
+    - sh scripts/pushNotification.sh

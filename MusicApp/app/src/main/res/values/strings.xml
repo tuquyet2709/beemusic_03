@@ -11,4 +11,6 @@
     <string name="playlists">PlayList</string>
     <string name="singer">Singer</string>
     <string name="album">Album</string>
+    <string name="cant_delete_this_song">Can\'t delete this song</string>
+    <string name="cant_get_your_data">Can\'t get your data</string>
 </resources>
