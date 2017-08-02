@@ -4,17 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.tuquyet.musicapp.R;
-import com.tuquyet.musicapp.screen.library.AlbumFragment;
 import com.tuquyet.musicapp.screen.library.LibraryActivity;
-import com.tuquyet.musicapp.screen.library.LibraryAdapter;
-import com.tuquyet.musicapp.screen.library.PlaylistFragment;
-import com.tuquyet.musicapp.screen.library.SingerFragment;
-import com.tuquyet.musicapp.screen.library.SongFragment;
 
 /**
  * Created by tuquyet on 25/07/2017.
