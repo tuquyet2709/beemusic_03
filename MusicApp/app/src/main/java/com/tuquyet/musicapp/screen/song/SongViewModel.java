@@ -1,13 +1,14 @@
 package com.tuquyet.musicapp.screen.song;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.data.model.Song;
+import com.tuquyet.musicapp.screen.playsong.PlaySongActivity;
 import com.tuquyet.musicapp.screen.BaseRecyclerViewAdapter;
 
 import java.util.List;
@@ -84,5 +85,7 @@ public class SongViewModel extends BaseObservable implements BaseRecyclerViewAda
 
     @Override
     public void onItemRecyclerViewClick(Song item) {
+        Intent intent = PlaySongActivity.getPlaySongIntent(mContext);
+        mContext.startActivity(intent);
     }
 }
