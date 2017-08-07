@@ -8,12 +8,12 @@ import android.graphics.drawable.Drawable;
 public class Song {
     private long mSongID;
     private String mSongTitle;
-    private Drawable mSongAvatar;
+    private String mSongAvatarPath;
     private String mSongArtist;
 
-    public Song(long songID, Drawable songAvatar, String songTitle, String songArtist) {
+    public Song(long songID, String songAvatarPath, String songTitle, String songArtist) {
         mSongID = songID;
-        mSongAvatar = songAvatar;
+        mSongAvatarPath = songAvatarPath;
         mSongTitle = songTitle;
         mSongArtist = songArtist;
     }
@@ -34,12 +34,12 @@ public class Song {
         mSongTitle = songTitle;
     }
 
-    public Drawable getSongAvatar() {
-        return mSongAvatar;
+    public String getSongAvatarPath() {
+        return mSongAvatarPath;
     }
 
-    public void setSongAvatar(Drawable songAvatar) {
-        mSongAvatar = songAvatar;
+    public void setSongAvatarPath(String songAvatarPath) {
+        mSongAvatarPath = songAvatarPath;
     }
 
     public String getSongArtist() {

@@ -30,7 +30,7 @@
                 android:layout_width="@dimen/dp_55"
                 android:layout_height="@dimen/dp_55"
                 android:layout_margin="@dimen/dp_2"
-                bind:setImageDrawable="@{viewModel.songAvatar}"/>
+                bind:imageResource="@{viewModel.songAvatarPath}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
