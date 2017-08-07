@@ -3,10 +3,6 @@ package com.tuquyet.musicapp.data.source.local;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.provider.MediaStore;
 
@@ -58,7 +54,7 @@ public class SongLocalDataSource implements SongDataSource {
                         String currentAlbumArtPath =
                             createSongAlbumArtPathFromAlbumID(currentAlbumID);
                         songList
-                            .add(new Song(currentId, Drawable.createFromPath(currentAlbumArtPath),
+                            .add(new Song(currentId, currentAlbumArtPath,
                                 currentTitle,
                                 currentArtist));
                     } while (songCursor.moveToNext());

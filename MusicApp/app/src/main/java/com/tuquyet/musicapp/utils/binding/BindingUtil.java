@@ -1,7 +1,9 @@
 package com.tuquyet.musicapp.utils.binding;
 
+import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -16,8 +18,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.screen.main.MainViewModel;
+import com.tuquyet.musicapp.screen.song.SongFragment;
+
+import java.io.File;
 
 /**
  * Created by tuquyet on 26/07/2017.
@@ -63,8 +72,15 @@ public class BindingUtil {
         view.setAdapter(adapter);
     }
 
-    @BindingAdapter("setImageDrawable")
-    public static void setImageDrawable(ImageView imageDrawable, Drawable drawable){
-        imageDrawable.setImageDrawable(drawable);
+    @BindingAdapter({"imageResource"})
+    public static void setImageDrawable(final ImageView imageView, String path){
+        Context context = imageView.getContext();
+        Glide.with(context)
+            .load(path)
+            .override(55,55)
+            .error(R.drawable.music)
+            .placeholder(R.mipmap.ic_launcher_round)
+            .centerCrop()
+            .into(imageView);
     }
 }
