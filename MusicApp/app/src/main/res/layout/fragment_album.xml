@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/fragment_album"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tuquyet.musicapp.screen.album.AlbumViewModel"/>
+
+        <import type="com.tuquyet.musicapp.utils.LayoutManagers"/>
+
+    </data>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_5"
+        bind:adapter="@{viewModel.adapter}"
+        bind:layoutManagerGrid="@{LayoutManagers.grid(@integer/span_3)}">
+    </android.support.v7.widget.RecyclerView>
+</layout>

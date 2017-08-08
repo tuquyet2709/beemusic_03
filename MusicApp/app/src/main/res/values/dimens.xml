@@ -11,4 +11,7 @@
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_5">5dp</dimen>
     <dimen name="dp_75">75dp</dimen>
+    <dimen name="dp_100">100dp</dimen>
+    <dimen name="dp_13">13dp</dimen>
+    <integer name="span_3">3</integer>
 </resources>
