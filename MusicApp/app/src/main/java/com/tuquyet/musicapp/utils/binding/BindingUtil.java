@@ -25,6 +25,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.screen.main.MainViewModel;
 import com.tuquyet.musicapp.screen.song.SongFragment;
+import com.tuquyet.musicapp.utils.LayoutManagers;
 
 import java.io.File;
 
@@ -72,15 +73,18 @@ public class BindingUtil {
         view.setAdapter(adapter);
     }
 
-    @BindingAdapter({"imageResource"})
+    @BindingAdapter("imageResource")
     public static void setImageDrawable(final ImageView imageView, String path){
         Context context = imageView.getContext();
         Glide.with(context)
             .load(path)
-            .override(55,55)
             .error(R.drawable.music)
-            .placeholder(R.mipmap.ic_launcher_round)
+            .placeholder(R.drawable.music)
             .centerCrop()
             .into(imageView);
+    }
+    @BindingAdapter("layoutManagerGrid")
+    public static void setLayoutManager(RecyclerView view, LayoutManagers.LayoutManagerFactory factory){
+        view.setLayoutManager(factory.create(view));
     }
 }
