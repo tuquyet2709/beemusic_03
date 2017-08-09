@@ -5,6 +5,7 @@ import android.databinding.Bindable;
 
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.screen.album.AlbumFragment;
+import com.tuquyet.musicapp.screen.artist.ArtistFragment;
 import com.tuquyet.musicapp.screen.main.MainContract;
 import com.tuquyet.musicapp.screen.song.SongFragment;
 
@@ -27,7 +28,7 @@ public class LibraryViewModel extends BaseObservable implements LibraryContract.
                             LibraryAdapter adapter) {
         adapter.addFragment(new PlaylistFragment(), libraryActivity.getString(R.string
             .playlists));
-        adapter.addFragment(new SingerFragment(), libraryActivity.getString(R.string.singer));
+        adapter.addFragment(new ArtistFragment(), libraryActivity.getString(R.string.singer));
         adapter.addFragment(new SongFragment(), libraryActivity.getString(R.string.title_song));
         adapter.addFragment(new AlbumFragment(), libraryActivity.getString(R.string.album));
         mLibraryActivity = libraryActivity;
