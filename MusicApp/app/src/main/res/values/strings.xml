@@ -13,6 +13,8 @@
     <string name="album">Album</string>
     <string name="cant_delete_this_song">Can\'t delete this song</string>
     <string name="cant_get_your_data">Can\'t get your data</string>
+    <string name="song">song</string>
+    <string name="songs">songs</string>
     <string name="permission_denied_please_grant_permission">PERMISSION DENIED, PLEASE GRANT
         PERMISSION!</string>
 </resources>
