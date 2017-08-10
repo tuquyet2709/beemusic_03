@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tuquyet.musicapp.screen.feedback.FeedBackViewModel">
+
+        </variable>
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_16"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="com.tuquyet.musicapp.screen.feedback.FeedbackActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_55"
+            android:gravity="center"
+            android:text="@string/please_say_something_about_my_app"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/dp_20"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/subject"
+            android:layout_margin="@dimen/dp_5"
+            android:textSize="@dimen/dp_20"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_5"
+            android:padding="@dimen/dp_5"
+            android:text="@={viewModel.textSubject}"
+            android:background="@drawable/rounded_color_accent"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_160"
+            android:layout_margin="@dimen/dp_5"
+            android:background="@drawable/rounded_color_accent"
+            android:padding="@dimen/dp_5"
+            android:paddingTop="0dp"
+            android:text="@={viewModel.textMessage}"
+            android:hint="@string/write_your_message_here"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_5"
+            android:text="@string/send_email"
+            android:onClick="@{(v) -> viewModel.onSendButtonClicked(v)}"/>
+    </LinearLayout>
+</layout>

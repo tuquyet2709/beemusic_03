@@ -23,6 +23,7 @@
         </activity>
         <activity android:name="com.tuquyet.musicapp.screen.library.LibraryActivity"/>
         <activity android:name="com.tuquyet.musicapp.screen.playsong.PlaySongActivity"/>
+        <activity android:name="com.tuquyet.musicapp.screen.feedback.FeedbackActivity"/>
     </application>
 
 </manifest>
