@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.tuquyet.musicapp.R;
+import com.tuquyet.musicapp.screen.feedback.FeedbackActivity;
 import com.tuquyet.musicapp.screen.library.LibraryActivity;
 
 /**
@@ -40,6 +41,7 @@ public class MainViewModel extends BaseObservable implements MainContract.ViewMo
             case R.id.nav_favorite:
                 break;
             case R.id.nav_feedback:
+                mContext.startActivity(new FeedbackActivity().getFeedbackIntent(mContext));
                 break;
             default:
                 break;

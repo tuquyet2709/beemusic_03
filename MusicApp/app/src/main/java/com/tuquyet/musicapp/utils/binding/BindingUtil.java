@@ -2,8 +2,6 @@ package com.tuquyet.musicapp.utils.binding;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -19,15 +17,9 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.tuquyet.musicapp.R;
 import com.tuquyet.musicapp.screen.main.MainViewModel;
-import com.tuquyet.musicapp.screen.song.SongFragment;
 import com.tuquyet.musicapp.utils.LayoutManagers;
-
-import java.io.File;
 
 /**
  * Created by tuquyet on 26/07/2017.
@@ -68,13 +60,14 @@ public class BindingUtil {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setupWithViewPager(viewPager);
     }
+
     @BindingAdapter("setRecyclerViewAdapter")
     public static void setAdapter(RecyclerView view, RecyclerView.Adapter adapter) {
         view.setAdapter(adapter);
     }
 
     @BindingAdapter("imageResource")
-    public static void setImageDrawable(final ImageView imageView, String path){
+    public static void setImageDrawable(final ImageView imageView, String path) {
         Context context = imageView.getContext();
         Glide.with(context)
             .load(path)
@@ -83,8 +76,10 @@ public class BindingUtil {
             .centerCrop()
             .into(imageView);
     }
+
     @BindingAdapter("layoutManagerGrid")
-    public static void setLayoutManager(RecyclerView view, LayoutManagers.LayoutManagerFactory factory){
+    public static void setLayoutManager(RecyclerView view,
+                                        LayoutManagers.LayoutManagerFactory factory) {
         view.setLayoutManager(factory.create(view));
     }
 }

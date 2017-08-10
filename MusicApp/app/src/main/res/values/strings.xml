@@ -17,4 +17,11 @@
     <string name="songs">songs</string>
     <string name="permission_denied_please_grant_permission">PERMISSION DENIED, PLEASE GRANT
         PERMISSION!</string>
+    <string name="write_your_message_here">Write your message here</string>
+    <string name="send_email">send email</string>
+    <string name="subject">Subject</string>
+    <string name="please_say_something_about_my_app">Please say something about my App...</string>
+    <string name="feedback_email">goldenlightning1252@gmail.com</string>
+    <string name="email_type">message/rfc822</string>
+    <string name="choose_app_to_send_email">Choose app to send email/rfc822</string>
 </resources>
