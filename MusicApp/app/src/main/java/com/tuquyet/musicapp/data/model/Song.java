@@ -2,10 +2,12 @@ package com.tuquyet.musicapp.data.model;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
+
 /**
  * Created by tuquyet on 31/07/2017.
  */
-public class Song {
+public class Song implements Serializable {
     private long mSongID;
     private String mSongTitle;
     private String mSongAvatarPath;

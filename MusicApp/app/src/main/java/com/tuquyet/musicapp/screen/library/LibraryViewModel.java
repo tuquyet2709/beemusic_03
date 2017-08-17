@@ -28,7 +28,7 @@ public class LibraryViewModel extends BaseObservable implements LibraryContract.
                             LibraryAdapter adapter) {
         adapter.addFragment(new PlaylistFragment(), libraryActivity.getString(R.string
             .playlists));
-        adapter.addFragment(new ArtistFragment(), libraryActivity.getString(R.string.singer));
+        adapter.addFragment(new ArtistFragment(), libraryActivity.getString(R.string.artist));
         adapter.addFragment(new SongFragment(), libraryActivity.getString(R.string.title_song));
         adapter.addFragment(new AlbumFragment(), libraryActivity.getString(R.string.album));
         mLibraryActivity = libraryActivity;
