@@ -32,4 +32,9 @@ public class SongRepository implements SongDataSource {
     public Observable<List<Song>> getAllSong() {
         return mSongLocalDataSource.getAllSong();
     }
+
+    @Override
+    public Observable<List<Song>> getSongsByAlbumId(int id) {
+        return mSongLocalDataSource.getSongsByAlbumId(id);
+    }
 }
