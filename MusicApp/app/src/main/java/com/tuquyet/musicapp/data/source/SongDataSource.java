@@ -12,5 +12,6 @@ import io.reactivex.Observable;
 public interface SongDataSource {
     void getSongById(int id);
     Observable<List<Song>> getAllSong();
+    Observable<List<Song>> getSongsByAlbumId(int id);
     void deleteSong(Song song);
 }

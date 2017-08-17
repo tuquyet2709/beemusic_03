@@ -68,6 +68,41 @@ public class SongLocalDataSource implements SongDataSource {
     }
 
     @Override
+    public Observable<List<Song>> getSongsByAlbumId(final int id) {
+        return Observable.create(new ObservableOnSubscribe<List<Song>>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<List<Song>> e) throws Exception {
+                List<Song> songList = new ArrayList<>();
+                Uri songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                Cursor songCursor = mContentResolver.query(songUri,
+                    new String[]{MediaStore.Audio.Media.ALBUM_ID, MediaStore.Audio.Media._ID,
+                        MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.ARTIST},
+                    MediaStore.Audio.Media.ALBUM_ID + "=?", new String[]{String.valueOf(id)}, null);
+                if (songCursor != null && songCursor.moveToFirst()){
+                    int songId = songCursor.getColumnIndex(MediaStore.Audio.Media._ID);
+                    int songTitle = songCursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
+                    int songArtist = songCursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
+                    do{
+                        long currentId = songCursor.getLong(songId);
+                        String currentTitle = songCursor.getString(songTitle);
+                        String currentArtist = songCursor.getString(songArtist);
+                        String currentAlbumArtPath =
+                            createSongAlbumArtPathFromAlbumID(String.valueOf(id));
+                        songList
+                            .add(new Song(currentId, currentAlbumArtPath,
+                                currentTitle,
+                                currentArtist));
+                    }while (songCursor.moveToNext());
+                    e.onNext(songList);
+                } else {
+                    e.onError(new NullPointerException());
+                }
+                e.onComplete();
+            }
+        }) ;
+    }
+
+    @Override
     public void deleteSong(Song song) {
     }
 
