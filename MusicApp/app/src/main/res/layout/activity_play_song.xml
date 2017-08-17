@@ -1,75 +1,96 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.tuquyet.musicapp.screen.playsong.PlaySongActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        tools:context="com.tuquyet.musicapp.screen.playsong.PlaySongActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+    <data>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@color/cardview_dark_background"/>
-
-        <SeekBar
-            android:id="@+id/seek_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"/>
-        <ImageView
-            android:layout_width="@dimen/dp_32"
-            android:layout_height="@dimen/dp_32"
-            android:src="@drawable/button_love_white"
-            android:layout_alignParentRight="true"
-            android:layout_above="@+id/seek_bar"
-            android:layout_marginRight="@dimen/dp_20"/>
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_5"
-        android:gravity="center"
-        android:textColor="@color/color_black"
-        android:textSize="@dimen/dp_32"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_2"
-        android:gravity="center"
-        android:textSize="@dimen/dp_20"
-        />
+        <variable
+            name="viewModel"
+            type="com.tuquyet.musicapp.screen.playsong.PlaySongViewModel">
+        </variable>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_11"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/dp_55"
-            android:layout_height="@dimen/dp_55"
-            android:layout_margin="@dimen/dp_11"
-            android:src="@drawable/button_previous"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-        <ImageView
-            android:layout_width="@dimen/dp_75"
-            android:layout_height="@dimen/dp_75"
-            android:layout_margin="@dimen/dp_11"
-            android:src="@drawable/button_play"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@color/cardview_dark_background"
+                bind:imageResource= "@{viewModel.songAvatarPath}"/>
 
-        <ImageView
-            android:layout_width="@dimen/dp_55"
-            android:layout_height="@dimen/dp_55"
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_32"
+                android:layout_height="@dimen/dp_32"
+                android:layout_above="@+id/seek_bar"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_20"
+                android:onClick="@{viewModel.onFavoriteButtonClicked}"
+                android:src="@drawable/button_love_white"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_5"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/dp_28"
+            android:text="@{viewModel.songTitle}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_2"
+            android:gravity="center"
+            android:textSize="@dimen/dp_16"
+            android:text="@{viewModel.songArtist}"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_11"
-            android:src="@drawable/button_next"/>
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dp_55"
+                android:layout_height="@dimen/dp_55"
+                android:layout_margin="@dimen/dp_11"
+                android:onClick="@{viewModel::onPreviousButtonClicked}"
+                android:src="@drawable/ic_previous"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/dp_75"
+                android:layout_height="@dimen/dp_75"
+                android:layout_margin="@dimen/dp_11"
+                android:onClick="@{viewModel::onPlayButtonClicked}"
+                android:src="@drawable/ic_play"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp_55"
+                android:layout_height="@dimen/dp_55"
+                android:layout_margin="@dimen/dp_11"
+                android:onClick="@{viewModel::onNextButtonClicked}"
+                android:src="@drawable/ic_next"
+                />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>
