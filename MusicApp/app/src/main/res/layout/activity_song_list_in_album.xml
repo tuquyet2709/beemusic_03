@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tuquyet.musicapp.screen.songlistinalbum.SongListInAlbumViewModel"/>
+
+        <import type="com.tuquyet.musicapp.utils.LayoutManagers"/>
+
+    </data>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_song_list_in_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_5"
+        bind:adapter="@{viewModel.adapter}"
+        bind:layoutManager="LinearLayoutManager">
+    </android.support.v7.widget.RecyclerView>
+</layout>
