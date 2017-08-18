@@ -28,7 +28,7 @@ public class SongListInAlbumPresenter implements SongListInAlbumContract.Present
 
     @Override
     public void onStart() {
-        mSongRepository.getListSongByAlbumId(mAlbumID).subscribeOn(Schedulers.newThread())
+        mSongRepository.getSongsByAlbumId(mAlbumID).subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(new Observer<List<Song>>() {
                 @Override
