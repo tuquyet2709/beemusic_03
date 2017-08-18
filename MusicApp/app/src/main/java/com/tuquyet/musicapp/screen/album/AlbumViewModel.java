@@ -1,6 +1,7 @@
 package com.tuquyet.musicapp.screen.album;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.tuquyet.musicapp.data.model.Song;
 import com.tuquyet.musicapp.screen.BaseRecyclerViewAdapter;
 import com.tuquyet.musicapp.screen.song.SongAdapter;
 import com.tuquyet.musicapp.screen.song.SongContract;
+import com.tuquyet.musicapp.screen.songlistinalbum.SongListInAlbumActivity;
 
 import java.util.List;
 
@@ -70,6 +72,8 @@ public class AlbumViewModel extends BaseObservable implements BaseRecyclerViewAd
 
     @Override
     public void onItemRecyclerViewClick(Album item) {
-        //Intent to....
+        Intent intent = SongListInAlbumActivity.getSongListInAlbumIntent(mContext,
+            (int) item.getAlbumID());
+        mContext.startActivity(intent);
     }
 }
